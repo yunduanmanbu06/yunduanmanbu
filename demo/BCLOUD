@@ -1,0 +1,1 @@
+BUILD_SUBMITTER -x -m baidu/duer/lightduer-os-for-mbed-demo -c "cd baidu/duer/lightduer-os-for-mbed-demo && mkdir output && cp BCLOUD ./output/" -u ./
