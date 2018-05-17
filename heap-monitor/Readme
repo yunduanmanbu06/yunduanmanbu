@@ -1,0 +1,48 @@
+       Content
+
+1. Usage
+2. Compile Option
+3. Note
+
+1. Usage:
+
+#include "heap_monitor.h"
+
+#ifdef HEAP_MONITOR
+	init_heap_info();
+#endif
+
+	void *p = MALLOC(100, OTA);
+	if (!p) {
+		Handle Error
+	}
+
+	void *ptr = REALLOC(p, 200, OTA);
+	if (!ptr) {
+		Handle Error
+	}
+
+	FREE(ptr);
+
+	ptr = CALLOC(10, 1, CA);
+	if (!ptr) {
+		Handle Error
+	}
+
+	int *p = NEW (HTTP) int;
+	delete p;
+
+	char *p = NEW (HTTP) char [20];
+	delete [] p;
+
+#ifdef HEAP_MONITOR
+	show_heap_info();
+#endif
+
+2. Compile Option:
+     -DHEAP_MONITOR
+     -DDEBUG_HEAP_MONITOR
+
+3. Note:
+     Do not call malloc_t() , free_t() , calloc_t , realloc_t() & new (http) directly!
+     Use MALLOC() CALLOC() REALLOC() FREE() NEW()
